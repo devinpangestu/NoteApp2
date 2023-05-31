@@ -1,0 +1,49 @@
+//backend
+npm install --save-dev typescript
+npx tsc --init
+
+npx tsc //to execute server.ts to server.js
+
+npm i -D ts-node => use (npx nodemon src/server.ts)
+npm i -D eslint
+npx eslint --init
+
+npm i dotenv mongoose
+npm i envalid
+
+npm i morgan
+npm i --save-dev @types/morgan
+
+npm i http-errors
+npm i -D @types/http-errors
+
+npm i bcrypt
+npm i -D @types/bcrypt
+
+npm i express-session // untuk autentikasi
+npm i -D @types/express-session 
+npm i connect-mongo
+
+//frontend
+npx create-react-app frontend --template typescript
+npm i react-bootstrap bootstrap
+npm i react-hook-form
+npm i react-icons
+npm i react-router-dom
+
+//concurrently
+npm i concurrently
+
+//FOLDER
+model = membuat model schema data yang akan dimasukkan ke database
+
+//proses
+views --(request)> routes --(request)> controllers --(request)> models
+routes sm controllers berhubungan
+
+//migrate from cra to vite
+npm i -D @vitejs/plugin-react vite-plugin-svgr vite
+remove react-scripts ->package.json
+npm i 
+npm i vite-plugin-env-compatible
+vite-tsconfig-paths
