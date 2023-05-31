@@ -22,7 +22,7 @@ app.use(
 app.use(morgan("dev"));
 
 app.use(express.json());
-app.enable("trust proxy", true);
+app.enable("trust proxy", 1);
 app.use(cookieParser());
 app.use(
   session({
@@ -31,10 +31,10 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false,
-      httpOnly: false,
+      secure: true,
+      
       maxAge: 60 * 60 * 1000,
-      sameSite: "lax",
+      sameSite: "none",
     },
     rolling: true,
     store: MongoStore.create({
