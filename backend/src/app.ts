@@ -10,6 +10,7 @@ import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
 import cors from "cors";
 import path from "path";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -21,9 +22,11 @@ app.use(
 app.use(morgan("dev"));
 
 app.use(express.json());
-app.set("trust proxy", 1);
+app.enable("trust proxy", true);
+app.use(cookieParser());
 app.use(
   session({
+    proxy: true,
     secret: env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
