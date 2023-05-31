@@ -32,7 +32,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true,
+      secure: app.get("env") === "production" ? true : false,
 
       maxAge: 60 * 60 * 1000,
       sameSite: "none",
