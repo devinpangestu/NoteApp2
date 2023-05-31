@@ -21,7 +21,7 @@ app.use(
 app.use(morgan("dev"));
 
 app.use(express.json());
-
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: env.SESSION_SECRET,
@@ -30,6 +30,7 @@ app.use(
     name: "DevinNoteApp",
     cookie: {
       maxAge: 60 * 60 * 1000,
+      sameSite: "none",
     },
     rolling: true,
     store: MongoStore.create({
