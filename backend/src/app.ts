@@ -27,6 +27,7 @@ app.use(
     secret: env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    name: "DevinNoteApp",
     cookie: {
       maxAge: 60 * 60 * 1000,
     },
