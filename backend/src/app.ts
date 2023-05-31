@@ -18,6 +18,7 @@ app.use(
   cors({
     origin: "https://devin-note-app.netlify.app",
     credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   })
 );
 app.use(morgan("dev"));
