@@ -29,13 +29,13 @@ app.set("trust proxy", 1);
 app.use(cookieParser());
 app.use(
   session({
-    proxy: true,
+    proxy: true, //penting
     secret: env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-      sameSite: "none",
-      secure: true,
+      sameSite: "none", //penting
+      secure: true, //penting
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
