@@ -18,7 +18,8 @@ app.use(
   cors({
     origin: "https://devin-note-app.netlify.app",
     credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+
+    optionsSuccessStatus: 200,
   })
 );
 app.use(morgan("dev"));
@@ -33,10 +34,9 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: app.get("env") === "production" ? true : false,
-
+      secure: false,
+      path: '/',
       maxAge: 60 * 60 * 1000,
-      
     },
     rolling: true,
     store: MongoStore.create({
