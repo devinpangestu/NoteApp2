@@ -22,7 +22,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://noteappapi.vercel.app/",
+        target: "https://noteappapi.onrender.com/",
         changeOrigin: true,
         secure: false,
       },
