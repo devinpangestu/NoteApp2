@@ -16,6 +16,7 @@ const app = express();
 
 app.use(
   cors({
+    origin: "https://devin-note-app.netlify.app",
     credentials: true,
   })
 );
@@ -32,7 +33,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: true,
-      
+
       maxAge: 60 * 60 * 1000,
       sameSite: "none",
     },
