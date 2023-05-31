@@ -35,7 +35,7 @@ app.use(
       secure: app.get("env") === "production" ? true : false,
 
       maxAge: 60 * 60 * 1000,
-      sameSite: "none",
+      sameSite: false,
     },
     rolling: true,
     store: MongoStore.create({
