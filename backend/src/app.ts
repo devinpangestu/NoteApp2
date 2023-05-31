@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: "https://devin-note-app.netlify.app",
     credentials: true,
-
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
     optionsSuccessStatus: 200,
   })
 );
@@ -35,7 +35,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: false,
-      path: '/',
+      path: "/",
       maxAge: 60 * 60 * 1000,
     },
     rolling: true,
