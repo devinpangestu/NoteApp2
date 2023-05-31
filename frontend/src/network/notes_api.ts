@@ -27,7 +27,7 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
 export async function getLoggedInUser(): Promise<User> {
   const response = await fetchData(
     `${import.meta.env.VITE_APP_APIURL}/api/users`,
-    { method: "GET" }
+    { method: "GET", credentials: "include" }
   );
   return response.json();
 }
@@ -43,6 +43,7 @@ export async function signUp(credentials: SignUpCredentials): Promise<User> {
     `${import.meta.env.VITE_APP_APIURL}/api/users/signup`,
     {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -62,6 +63,7 @@ export async function login(credentials: LoginCredentials): Promise<User> {
     `${import.meta.env.VITE_APP_APIURL}/api/users/login`,
     {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -74,13 +76,14 @@ export async function login(credentials: LoginCredentials): Promise<User> {
 export async function logout() {
   await fetchData(`${import.meta.env.VITE_APP_APIURL}/api/users/logout`, {
     method: "POST",
+    credentials: "include",
   });
 }
 
 export async function fetchNotes(): Promise<Note[]> {
   const response = await fetchData(
     `${import.meta.env.VITE_APP_APIURL}/api/notes`,
-    { method: "GET" }
+    { method: "GET", credentials: "include" }
   );
   return response.json();
 }
@@ -95,6 +98,7 @@ export async function createNote(note: NoteInput): Promise<Note> {
     `${import.meta.env.VITE_APP_APIURL}/api/notes`,
     {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -112,6 +116,7 @@ export async function updateNote(
     `${import.meta.env.VITE_APP_APIURL}/api/notes/` + noteId,
     {
       method: "PATCH",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -124,5 +129,6 @@ export async function updateNote(
 export async function deleteNote(noteId: string) {
   await fetchData(`${import.meta.env.VITE_APP_APIURL}/api/notes/` + noteId, {
     method: "DELETE",
+    credentials: "include",
   });
 }
